@@ -21,7 +21,7 @@ export default async function sendCode(req) {
         tokenUidMap.delete(token)
     }, config.timeout)
 
-    const url = `${config.muip}?uid=${uid}&title=${config.mail.title}&content=${config.mail.content.replace('$CODE', code)}&sender=${config.mail.sender}&expire_time=${config.mail.expireTime + new Date().getTime()}&is_collectible=false&cmd=1005&region=${config.region}&ticket=@YSGM${sign()}&sign=${sign()}`
+    const url = `${config.muip}?uid=${uid}&title=${config.mail.title}&content=${config.mail.content.replace('$CODE', code)}&sender=${config.mail.sender}&expire_time=${config.mail.expireTime + Math.floor(new Date().getTime() / 1000)}&is_collectible=false&cmd=1005&region=${config.region}&ticket=@YSGM${sign()}&sign=${sign()}`
     console.log(url)
     let retcode = 200
     await fetch(url).then(() => retcode = 200).catch(() => retcode = 400)

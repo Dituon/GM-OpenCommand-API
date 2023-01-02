@@ -1,9 +1,8 @@
 export default {
     port: 1145,
-    muip: 'http://home.mrji.tk:20011',
+    muip: 'http://127.0.0.1:20011',
     region: 'dev_local',
     timeout: 60000,
-    salt: 'salt',
     mail: {
         sender: 1,
         title: '验证码',
