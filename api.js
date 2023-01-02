@@ -18,12 +18,18 @@ server.on('request', async (req, res) => {
     let jsonStr = '', json = null
     req.on('data', str => jsonStr += str)
     await new Promise(rej => req.on('end', rej))
+    res.writeHead(200, { 'Content-Type': 'application/json' })
     try {
         json = JSON.parse(jsonStr)
-        res.writeHead(200, { 'Content-Type': 'application/json' })
     } catch (e) {
         console.warn(jsonStr)
-        res.writeHead(400)
+        res.write(JSON.stringify({
+            status: {
+                version: config.query.version,
+                maxPlayer: config.query.maxPlayer,
+                playerCount: config.query.playerCount
+            }
+        }))
         res.end()
         return
     }

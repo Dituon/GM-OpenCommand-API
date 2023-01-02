@@ -8,5 +8,10 @@ export default {
         title: '验证码',
         content: `你的验证码是$CODE, 10分钟后过期`,
         expireTime: 600
+    },
+    query: {
+        version: '3.2 GM',
+        maxPlayer: 1000,
+        playerCount: 0
     }
 }
