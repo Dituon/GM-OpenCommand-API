@@ -15,4 +15,7 @@ opencommand for GM by node
 - `sendCode`
 - `verify`
 - `command`
+
 see [`gc-opencommand-plugin`](https://github.com/jie65535/gc-opencommand-plugin)
+
+see [`grasscutter-command-helper`](https://github.com/Dituon/grasscutter-command-helper)
